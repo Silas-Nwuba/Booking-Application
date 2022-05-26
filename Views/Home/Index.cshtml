@@ -1,0 +1,388 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookingApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Booking Application</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center;padding:5px">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#About-page" style="scroll-behavior:auto;text-decoration:none " class=" text-dark">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" style="scroll-behavior:smooth;text-decoration:none" class=" text-dark">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#faq" style="scroll-behavior:smooth;text-decoration:none" class="text-dark">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" style="scroll-behavior:smooth" class="text-dark">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="background-content">
+            <div>
+                <img src="~/picture/nigeria bus.jpg" />
+                <button class="btn">Booking</button>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <br /><br /><br /><br />
+        @*<div class="row">*@
+        <div id="About-page">
+            <strong>
+                <label style="font-size:35px"> Things to know <l style="color:orange">About us</l></label><br /><br />
+            </strong>
+            <p>
+                <label style="font-size: 17px; text-align: justify; text-justify: inter-word;">Divine Mass Transit Ltd is a transportion company rendering service of any kind which has made it to be the best in nigria, founded in 2018 and currently headquartered in Abuja, Nigeria.&nbsp; Our mission is to bring the easiest means of transporting goods and services the best in, eliminates lost of goods, improves mental acuity in the issues of insecurity and enhanced self-esteem.</label>
+            </p>
+            <p>
+                <label style="font-size: 17px; text-align: justify; text-justify: inter-word;">Our major goal is to restore the confident and reliabilty of the transportation system in nigeria, it will a great honor to the company to render our service to our esteen customer. we have the best road pilot ever who has the interest of the passengers that hand.</label>
+            </p>
+            <p id="readTex" style="display:none">
+                <label style="font-size: 17px; text-align: justify; text-justify: inter-word;">Our Vision is that with the quality of goods and service with the compentent staff and management and also with our highly esteem customer, we are going give our outermost best to be the best transportion company accross the world. </label>
+            </p>
+            <button id="aboutReadmore" class="btn btn-warning" style="color:white;font-size:18px">Read more <i class="fa-solid fa-arrow-right" style="color:white"></i></button>
+        </div>
+        <div class="service" id="service">
+            <div class="service-content">
+                <strong>
+                    <label style="font-size: 35px; transform: translate(-50%, -50%); position: absolute; left: 50%; text-align:center">Our<l style="color:orange"> Services</l></label><br /><br /><br />
+                </strong>
+                <div class="container">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6 col-lg-4 py-3 py-sm-0">
+                            <div class="card  box-shadow">
+                                <img class="card-img-top" src="~/picture/istockphoto-1186576767-612x612.jpg" />
+                                <div class="card-body">
+                                    <br /><br />
+                                    <h4 class="card-title">Delivery Services</h4>
+                                    <p class="card-text">We offer delivery service to any Location</p>
+                                    <p class="card-text">just give us a call we are at your door post</p>
+                                    <p class="card-text" id="text1" style="display:none">our service are affordable and intresting</p>
+                                    <button class="btn btn-warning" id="read1">Read >></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4  py-3 py-sm-0">
+                            <div class="card box-shadow">
+                                <img class="card-img-top" src="~/picture/Logistics-digital-solutions.jpg" />
+                                <div class="card-body">
+                                    <br /><br />
+                                    <h4 class="card-title">Logistic Service</h4>
+                                    <p class="card-text">We Offer Logistic Services Across the Country</p>
+                                    <p class="card-text">just give us a call we are at your door post</p>
+                                    <p class="card-text" id="text2" style="display:none">our service are affordable and intresting</p>
+                                    <button class="btn btn-warning" id="read2">Read >></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4  py-3 py-sm-0">
+                            <div class="card  box-shadow">
+                                <img class="card-img-top" src="~/picture/shutterstock_1297153516.jpg" />
+                                <div class="card-body">
+                                    <br /><br />
+                                    <h4 class="card-title">Express Services</h4>
+                                    <p class="card-text">We offer Express services to any location</p>
+                                    <p class="card-text">just give us a call we are at your door post</p>
+                                    <p class="card-text" id="text3" style="display:none">our service are affordable and intresting</p>
+
+                                    <button class="btn btn-warning" id="read3">Read >></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br /><br />  <br /><br /><br />
+        <div class="faq" id="faq">
+            <strong>
+                <label style="font-size:35px; transform: translate(-50%, -50%); position: absolute; left: 50%; text-align:center">Frequently <l style="color:orange"> Asked Question</l></label>
+            </strong>
+            <br /><br />
+            <div class="row">
+                @*<div class="col-md-6">
+
+                    <img src="~/picture/New-blog-graphic-66.jpg" class="faq-image" />
+                </div*@>
+                <div class="col-md-8">
+                    <div class="accordion">
+                        <div class="accordion-body" style="position: relative; left: 50%; right: 50%; transform: translate(-50%,-50%); top: 150px">
+                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                                <div class="label">
+                                    <p style="position: relative; left: 15px">How do i purchase a bus ticket online?</p>
+                                </div>
+                                <div class="content" style="width:100%;background-color:white;padding:2px">
+                                    <p>You can purchase/book a bus ticket here or on your <p>
+                                        smart device by downloading our app from the Android or
+                                    <p>Apple store</p>
+                                </div>
+                            </div>
+                            <hr style="border:1px solid #e8e5df4f" />
+                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                                <div class="label">
+                                    <p style="position: relative; left: 15px">What payment methode is Available?</p>
+                                </div>
+                                <div class="content" style="width:100%;background-color:white;padding:2px">
+                                    <p>Transfer and Card - visa-master-versa</p>
+                                </div>
+                            </div>
+                            <hr style="border:1px solid #e8e5df4f" />
+                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                                <div class="label">
+                                    <p style="position: relative; left: 15px">What happen after booking?</p>
+                                </div>
+                                <div class="content" style="width:100%;background-color:white;padding:2px">
+                                    <p style="position: relative; left: 15px">After booking a reciept will be issues to you wish u will</p><p> use to enter the bus</p>
+                                </div>
+                            </div>
+                            <hr style="border:1px solid #e8e5df4f"/>
+                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                                <div class="label">
+                                    <p style="position: relative; left: 15px">Where will i pick up my way bill or delivery package?</p>
+                                </div>
+                                <div class="content" style="width:100%;background-color:white;padding:2px">
+                                    <p>All way bill and delivery package are drop at the nearest pack</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br /><br /><br />  <br /><br />
+
+        <div class="contacts" id="contact-page">
+            <div class="contact-content">
+                <h2>Connect with<l style="color:orange"> us</l></h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>if you have any question or queries feel free to contact us</p>
+                        <p>by telephone or email and we will be sure to get back at you</p>
+                        <p>as soon as possible. Thanks</p><br />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="border-radius:5px;position:relative;right:20px">
+                            <div class="card-body">
+                                <h2>Send Us <l style="color:orange"> Email</h2><br />
+                                <form id="form" action="" onsubmit="return validationForm()">
+                                    <div class="form-group">
+                                        <i class="fas fa-user"></i><label>Enter you Name<l style="color:red;font-weight:500">*</l></label>
+                                        <input class="form-control" type="text" id="username" name="username">
+                                        <div class="user-error">Name field is required</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <i class="fa fa-envelope"></i> <label>Enter valid Email<l style="color:red;font-weight:500">*</l></label>
+                                        <input class="form-control" type="email" id="emailname" name="emailname">
+                                        <div class="email-error">Email field is required</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Message<l style="color:red;font-weight:500">*</l></label>
+                                        <input class="form-control" type="text" style="height:150px" id="messagename" name="messagename">
+                                        <div class="message-error">Message field is required</div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;height:40px;position:relative;bottom:15px">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="border-top footer">
+        <div class="container">
+            <div class="copy">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-4">
+                        <div id="about">
+                            <br />
+                            <h1 style="font-size:17px;color:orange; font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;width:250px;line-height:50px;margin-right:50px">DIVINE MASS TRANSIT</h1>
+                            <div class="useful">
+
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register" style="color:#ddd">Register</a>
+
+
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" style="color:#ddd">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="contacts">
+                            <br>
+                            <h2 style="font-size:19px;color:orange;font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;width:250px;line-height:50px;margin-left:30px">Contact us</h2>
+                            <div class="contact-info">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                    </svg>
+                                    <span class="text">No.236 Awada obosi Anambra state Nigeria</span>
+                                </div><br />
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                    </svg>
+                                    <span class="text">+234-0992350484,+234-0966218126</span>
+                                </div><br />
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 14 14">
+                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                                    </svg>
+
+                                    <span class="text">nwubasilas@yahoo.com</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="useful-link">
+                            <h2 style="font-size:19px;font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;color:orange;width:250px;line-height: 50px;margin-right:50px">Useful-link</h2>
+                            <div class="useful">
+
+                                <a href="#">Home</a>
+                                <a href="#about">About us</a>
+                                <a href="#service">Service</a>
+                                <a href="#faq">FaQ</a>
+                                <a href="#contact">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br /><br />
+                <div class="social">
+                    <span style="margin:5px">
+                        <a href="https://twitter.com/SilasNwuba">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                            </svg>
+                        </a>
+                        <a href="https://web.facebook.com/?_rdc=1&amp;_rdr">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                            </svg>
+                        </a>
+                        <a href="tel:+234-9092350484">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </a>
+                    </span>
+                </div>
+
+                <br /><br /><br /><br /><br /><br />
+                <p class="text-center">©copywrite and licensed by mikeclassic|design by ebukaTech Ltd</p>
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const accordion = document.getElementsByClassName('container');
+        for (i = 0; i < accordion.length; i++) {
+            accordion[i].addEventListener('click', function () {
+                this.classList.toggle('active')
+            })
+        }
+        const textdisplay1 = document.getElementById("read1")
+        textdisplay1.addEventListener("click", function () {
+            const text = document.getElementById("text1");
+            if (text.style.display == "none") {
+                text.style.display = "block";
+            }
+            else {
+                text.style.display = "none";
+            }
+        });
+
+        const textdisplay2 = document.getElementById("read2")
+        textdisplay2.addEventListener("click", function () {
+            const text = document.getElementById("text2");
+
+            if (text.style.display == "none") {
+                text.style.display = "block";
+            }
+            else {
+                text.style.display = "none";
+            }
+
+        });
+        const textdisplay3 = document.getElementById("read3")
+        textdisplay3.addEventListener("click", function () {
+            const text = document.getElementById("text3");
+
+            if (text.style.display == "none") {
+                text.style.display = "block";
+            }
+            else {
+                text.style.display = "none";
+            }
+        });
+        const aboutUsreadText = document.getElementById("aboutReadmore");
+        aboutUsreadText.addEventListener("click", function () {
+            const readText = document.getElementById("readTex");
+            if (readText.style.display == "block") {
+                readText.style.display = "none";
+            }
+            else {
+                readText.style.display = "block";
+            }
+        });
+        //email validition error
+        const user = document.getElementById("username").value;
+        const email = document.getElementById("emailname").value;
+        const message = document.getElementById("messagename").value;
+
+        function validationForm(e) {
+            e.preventDefault();
+            if (user == "" || user == null) {
+                const error = document.getElementById("user-error");
+                error.style.display = "block";
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
