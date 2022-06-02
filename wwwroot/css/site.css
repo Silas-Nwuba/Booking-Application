@@ -34,7 +34,11 @@ html {
     font-size: 16px;
   }
 }
+.nav-link a:hover{
+    color:orange;
+    transition:0.5s ease-in-out;
 
+}
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
@@ -66,22 +70,7 @@ html {
   
 
 }
-/*/*#faq {
-    position: relative;
-    bottom: 13px;
-}*/
-/*/*#contact {
-    position: relative;
-    bottom: 1200px;
-}*/
 body {
-    /* Margin bottom by footer height */
-   
-
-    /*  background-image: url("../picture/trucksunset.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;*/
 }
 .background-content {
     width: 100%;
@@ -92,8 +81,7 @@ body {
         width: 100%;
         max-height: 500px;
         height: auto;
-        position: relative;
-        bottom: 15px;
+       
     }
     .background-content .btn {
         position: absolute;
@@ -102,7 +90,7 @@ body {
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
         border: 1px solid #f5b90f;
-        width:30%;
+        width:200px;
         border-radius: 20px;
         text-align: center;
         cursor: pointer;
@@ -131,11 +119,19 @@ body {
 .navigation a {
     margin: 10px;
 }
-    .footer {
-        background: #2b2c2b;
-        position: relative;
-        top: 100px;
-    }
+.MyCard{
+    display: flex;
+    justify-content: space-between;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-flow: wrap;
+    flex-wrap: wrap;
+}
+.footer {
+    background: #2b2c2b;
+    position: relative;
+    top: 20px;
+}
 .About-us {
     display: flex;
     justify-content: space-between;
@@ -188,15 +184,12 @@ body {
 }
 /*the end of social icon*/
 .accordion {
-    margin-top:80px;
-    margin-right:10px
-     /* width: 550px;
-        position: relative;
-        bottom: 40px;
-       left:30px;
-        color: black;
-        background-color: white;
-        padding: 20px 20px;*/
+    margin-top:300px;
+    margin-right:10px;
+    position:relative;
+    max-width:900px;
+    left:50%;
+    transform:translate(-50% , -50%);
 }
 
     .accordion .container {
@@ -246,7 +239,7 @@ body {
     }
     /* Adds a horizontal line between the contents */
     .accordion hr {
-        width: 100;
+        width: 100px;
         margin-left: 0;
         border: 1px solid grey;
     }
@@ -643,17 +636,16 @@ body {
     outline: none;
 }
 
-form button {
-    width: 200px;
-    height: 70px;
+/*form button {
+    padding:10px;
     background-color: #156b8f;
     color: white;
     font-weight: 500;
     border: none;
-    font-size: 20px;
-    margin-top: 50px;
-    cursor: pointer;
-}
+    font-size: 17px;
+    border-radius:5px;
+    cursor: default;
+}*/
 
 .me {
     display: flex;

@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApplication", "BookingApplication.csproj", "{DB23A0B8-5E89-4277-B105-E41120F5E797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApplication", "BookingApplication.csproj", "{DB23A0B8-5E89-4277-B105-E41120F5E797}"
+	ProjectSection(ProjectDependencies) = postProject
+		{260C8190-AF04-4A65-ADEE-7763FB57973C} = {260C8190-AF04-4A65-ADEE-7763FB57973C}
+		{1990D2B9-85E7-4196-BB85-CD9A23A20CAA} = {1990D2B9-85E7-4196-BB85-CD9A23A20CAA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivineProjectEntity", "..\DivineProjectEntity\DivineProjectEntity.csproj", "{A5C36C35-79E9-43E4-A1C9-68F6910C6AB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivineProjectPersistence", "..\DivineProjectPersistence\DivineProjectPersistence.csproj", "{260C8190-AF04-4A65-ADEE-7763FB57973C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivineProjectServices", "..\DivineProjectServices\DivineProjectServices.csproj", "{1990D2B9-85E7-4196-BB85-CD9A23A20CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,18 @@ Global
 		{DB23A0B8-5E89-4277-B105-E41120F5E797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB23A0B8-5E89-4277-B105-E41120F5E797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB23A0B8-5E89-4277-B105-E41120F5E797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C36C35-79E9-43E4-A1C9-68F6910C6AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C36C35-79E9-43E4-A1C9-68F6910C6AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C36C35-79E9-43E4-A1C9-68F6910C6AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C36C35-79E9-43E4-A1C9-68F6910C6AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260C8190-AF04-4A65-ADEE-7763FB57973C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260C8190-AF04-4A65-ADEE-7763FB57973C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260C8190-AF04-4A65-ADEE-7763FB57973C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260C8190-AF04-4A65-ADEE-7763FB57973C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1990D2B9-85E7-4196-BB85-CD9A23A20CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1990D2B9-85E7-4196-BB85-CD9A23A20CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1990D2B9-85E7-4196-BB85-CD9A23A20CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1990D2B9-85E7-4196-BB85-CD9A23A20CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

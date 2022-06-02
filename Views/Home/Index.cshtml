@@ -7,40 +7,41 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BookingApplication</title>
+    <title>@ViewData["Title"] - Divine mass transit</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet" />
-
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3  fixed-top">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Booking Application</a>
+                <h4 class="navbar-brand"style="font-family:Arial, Helvetica, sans-serif;font-size:25px">Divine mass<l style="font-family:'Segoe Print';font-size:20px"> Transit LTD</l></h4>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center;padding:5px">
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center;padding:5px"style="display:flex;justify-content:space-around;flex-wrap:wrap" id="nav-link">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#About-page" style="scroll-behavior:auto;text-decoration:none " class=" text-dark">About us</a>
+                            <a class="nav-link text-dark"asp-area="" asp-controller="Home" asp-action="About">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#services" style="scroll-behavior:smooth;text-decoration:none" class=" text-dark">Service</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Service">Service</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#faq" style="scroll-behavior:smooth;text-decoration:none" class="text-dark">FAQ</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="faq">FAQ</a>
+                            @*<a href="#faq" style="scroll-behavior:smooth;text-decoration:none" class="text-dark">FAQ</a>*@
                         </li>
                         <li class="nav-item">
-                            <a href="#contact" style="scroll-behavior:smooth" class="text-dark">Contact us</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact us</a>
+                            @*<a href="#contact" style="scroll-behavior:smooth" class="text-dark">Contact us</a>*@
                         </li>
                     </ul>
                 </div>
@@ -49,7 +50,7 @@
         <div class="background-content">
             <div>
                 <img src="~/picture/nigeria bus.jpg" />
-                <button class="btn">Booking</button>
+                <a class="btn"asp-action="Index"asp-controller="Destination">Book Now</a>
             </div>
         </div>
     </header>
@@ -130,99 +131,90 @@
                 <label style="font-size:35px; transform: translate(-50%, -50%); position: absolute; left: 50%; text-align:center">Frequently <l style="color:orange"> Asked Question</l></label>
             </strong>
             <br /><br />
+            <div class="accordion">
+                <div class="accordion-body" style="position: relative; left: 50%; right: 50%; transform: translate(-50%,-50%); top: 150px">
+                    <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                        <div class="label">
+                            <p style="position: relative; left: 15px">How do i purchase a bus ticket online?</p>
+                        </div>
+                        <div class="content" style="width:100%;background-color:white;padding:2px">
+                            <p>You can purchase/book a bus ticket here or on your <p>
+                                smart device by downloading our app from the Android or
+                            <p>Apple store</p>
+                        </div>
+                    </div>
+                    <hr style="border:1px solid #e8e5df4f" />
+                    <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                        <div class="label">
+                            <p style="position: relative; left: 15px">What payment methode is Available?</p>
+                        </div>
+                        <div class="content" style="width:100%;background-color:white;padding:2px">
+                            <p>Transfer and Card - visa-master-versa</p>
+                        </div>
+                    </div>
+                    <hr style="border:1px solid #e8e5df4f" />
+                    <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                        <div class="label">
+                            <p style="position: relative; left: 15px">What happen after booking?</p>
+                        </div>
+                        <div class="content" style="width:100%;background-color:white;padding:2px">
+                            <p style="position: relative; left: 15px">After booking a reciept will be issues to you wish u will</p><p> use to enter the bus</p>
+                        </div>
+                    </div>
+                    <hr style="border:1px solid #e8e5df4f" />
+                    <div class="container" style="width:100%;background-color:#eee;padding:2px">
+                        <div class="label">
+                            <p style="position: relative; left: 15px">Where will i pick up my way bill or delivery package?</p>
+                        </div>
+                        <div class="content" style="width:100%;background-color:white;padding:2px">
+                            <p>All way bill and delivery package are drop at the nearest pack</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="contacts" id="contact-page">
+        <div class="contact-content">
+            <h2>Connect with<l style="color:orange"> us</l></h2>
             <div class="row">
-                @*<div class="col-md-6">
-
-                    <img src="~/picture/New-blog-graphic-66.jpg" class="faq-image" />
-                </div*@>
-                <div class="col-md-8">
-                    <div class="accordion">
-                        <div class="accordion-body" style="position: relative; left: 50%; right: 50%; transform: translate(-50%,-50%); top: 150px">
-                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
-                                <div class="label">
-                                    <p style="position: relative; left: 15px">How do i purchase a bus ticket online?</p>
-                                </div>
-                                <div class="content" style="width:100%;background-color:white;padding:2px">
-                                    <p>You can purchase/book a bus ticket here or on your <p>
-                                        smart device by downloading our app from the Android or
-                                    <p>Apple store</p>
-                                </div>
-                            </div>
-                            <hr style="border:1px solid #e8e5df4f" />
-                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
-                                <div class="label">
-                                    <p style="position: relative; left: 15px">What payment methode is Available?</p>
-                                </div>
-                                <div class="content" style="width:100%;background-color:white;padding:2px">
-                                    <p>Transfer and Card - visa-master-versa</p>
-                                </div>
-                            </div>
-                            <hr style="border:1px solid #e8e5df4f" />
-                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
-                                <div class="label">
-                                    <p style="position: relative; left: 15px">What happen after booking?</p>
-                                </div>
-                                <div class="content" style="width:100%;background-color:white;padding:2px">
-                                    <p style="position: relative; left: 15px">After booking a reciept will be issues to you wish u will</p><p> use to enter the bus</p>
-                                </div>
-                            </div>
-                            <hr style="border:1px solid #e8e5df4f"/>
-                            <div class="container" style="width:100%;background-color:#eee;padding:2px">
-                                <div class="label">
-                                    <p style="position: relative; left: 15px">Where will i pick up my way bill or delivery package?</p>
-                                </div>
-                                <div class="content" style="width:100%;background-color:white;padding:2px">
-                                    <p>All way bill and delivery package are drop at the nearest pack</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+                <div class="col-md-6">
+                    <p>if you have any question or queries feel free to contact us</p>
+                    <p>by telephone or email and we will be sure to get back at you</p>
+                    <p>as soon as possible. Thanks</p><br />
                 </div>
-            </div>
-        </div>
-        <br /><br /><br />  <br /><br />
+                <div class="col-md-6">
+                    <div class="card" style="border-radius:5px;position:relative;right:20px">
+                        <div class="card-body">
+                            <h2>Send Us <l style="color:orange"> Email</h2><br />
+                            <form id="form" action="" onsubmit="return validationForm()">
+                                <div class="form-group">
+                                    <i class="fas fa-user"></i><label>Enter you Name<l style="color:red;font-weight:500">*</l></label>
+                                    <input class="form-control" type="text" id="username" name="username">
+                                    <div class="user-error">Name field is required</div>
+                                </div>
 
-        <div class="contacts" id="contact-page">
-            <div class="contact-content">
-                <h2>Connect with<l style="color:orange"> us</l></h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>if you have any question or queries feel free to contact us</p>
-                        <p>by telephone or email and we will be sure to get back at you</p>
-                        <p>as soon as possible. Thanks</p><br />
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card" style="border-radius:5px;position:relative;right:20px">
-                            <div class="card-body">
-                                <h2>Send Us <l style="color:orange"> Email</h2><br />
-                                <form id="form" action="" onsubmit="return validationForm()">
-                                    <div class="form-group">
-                                        <i class="fas fa-user"></i><label>Enter you Name<l style="color:red;font-weight:500">*</l></label>
-                                        <input class="form-control" type="text" id="username" name="username">
-                                        <div class="user-error">Name field is required</div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <i class="fa fa-envelope"></i> <label>Enter valid Email<l style="color:red;font-weight:500">*</l></label>
-                                        <input class="form-control" type="email" id="emailname" name="emailname">
-                                        <div class="email-error">Email field is required</div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Message<l style="color:red;font-weight:500">*</l></label>
-                                        <input class="form-control" type="text" style="height:150px" id="messagename" name="messagename">
-                                        <div class="message-error">Message field is required</div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;height:40px;position:relative;bottom:15px">Send</button>
-                                </form>
-                            </div>
+                                <div class="form-group">
+                                    <i class="fa fa-envelope"></i> <label>Enter valid Email<l style="color:red;font-weight:500">*</l></label>
+                                    <input class="form-control" type="email" id="emailname" name="emailname">
+                                    <div class="email-error">Email field is required</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Message<l style="color:red;font-weight:500">*</l></label>
+                                    <input class="form-control" type="text" style="height:150px" id="messagename" name="messagename">
+                                    <div class="message-error">Message field is required</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;height:40px;position:relative;bottom:15px">Send</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
     <footer class="border-top footer">
         <div class="container">

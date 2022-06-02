@@ -1,4 +1,6 @@
-using BookingApplication.Data;
+
+using DivineProjectServices.ProjectImplementation;
+using DivineProjectServices.ProjectServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookingApplication
+namespace DivineProjectPersistence
 {
     public class Startup
     {
@@ -34,6 +36,10 @@ namespace BookingApplication
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            //Configur my services
+            services.AddScoped<ICustomer,CustomerImplementation>();
+            services.AddScoped<ISchedule,ScheduleImplementation>();
+            services.AddScoped<IDestination, DestinationImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

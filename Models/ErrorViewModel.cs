@@ -1,6 +1,6 @@
 using System;
 
-namespace BookingApplication.Models
+namespace DivineProjectPersistence.Models
 {
     public class ErrorViewModel
     {

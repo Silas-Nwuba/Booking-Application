@@ -1,0 +1,295 @@
+﻿@model CustomerIndexViewModels
+@{
+    ViewBag.Title = "Booking";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Divine mass transit</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet" />
+</head>
+<body style="background-color:#eee">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3  fixed-top">
+            <div class="container">
+                <h4 class="navbar-brand" style="font-family:Arial, Helvetica, sans-serif;font-size:25px">Divine mass<l style="font-family:'Segoe Print';font-size:20px"> Transit LTD</l></h4>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center;padding:5px" style="display:flex;justify-content:space-around;flex-wrap:wrap" id="nav-link">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">FAQ</a>
+                            @*<a href="#faq" style="scroll-behavior:smooth;text-decoration:none" class="text-dark">FAQ</a>*@
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contact us</a>
+                            @*<a href="#contact" style="scroll-behavior:smooth" class="text-dark">Contact us</a>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="background-content">
+            <div>
+                <img src="~/picture/nigeria bus.jpg" />
+                <button class="btn" asp-action="Index" asp-controller="Customer">Book with us</button>
+            </div>
+        </div>
+    </header>
+    <div class="container"style="position: relative; bottom: 30px">
+
+        <div class="card box-shadow" style="border-radius:5px">
+            <div class="card-body" style="background-color:white;border-radius:4px">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Booking System</li>
+                    </ol>
+                </nav>
+                <br />
+                <form method="post" enctype="multipart/form-data" asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <h4>Personal Details</h4>
+                    <hr /><br />
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="FirstName"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="LastName"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="Gender"></label><l style="color:red;font-weight:500">*</l>
+                            <select asp-for="Gender" class="form-control">
+                                <option value="" disabled selected hidden>Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+
+                        </div>
+                    </div>
+                    <div></div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="Email"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label asp-for="PhoneNumber"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="State"></label><l style="color:red;font-weight:500">*</l>
+                            <select asp-for="State" class="form-control">
+                                <option value="" disabled selected hidden>Select City</option>
+                                <option>Abia</option>
+                                <option>Adamawa</option>
+                                <option>Akwa Ibom</option>
+                                <option>Anambra</option>
+                                <option>Bauchi</option>
+                                <option>Bayelsa</option>
+                                <option>Benue</option>
+                                <option>Borno</option>
+                                <option>Cross River</option>
+                                <option>Delta</option>
+                                <option>Ebonyi</option>
+                                <option>Edo</option>
+                                <option>Ekiti</option>
+                                <option>Enugu</option>
+                                <option>Gombe</option>
+                                <option>Imo</option>
+                                <option>Jigawa</option>
+                                <option>Kaduna</option>
+                                <option> Kano</option>
+                                <option> Katsina</option>
+                                <option> Kebbi</option>
+                                <option> Kogi</option>
+                                <option> Kwara</option>
+                                <option> Lagos</option>
+                                <option> Nasarawa</option>
+                                <option>Niger</option>
+                                <option>Ogun</option>
+                                <option>Ondo</option>
+                                <option>Osun</option>
+                                <option>Oyo</option>
+                                <option>Plateau</option>
+                                <option>Rivers</option>
+                                <option>Sokoto</option>
+                                <option>Taraba</option>
+                                <option>Yobe</option>
+                                <option>Zamfara</option>
+                                <option>Abia</option>
+                                <option>Fct</option>
+
+                            </select>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div></div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="NIN"></label>
+                            <input asp-for="NIN" class="form-control" />
+                            <span asp-validation-for="NIN" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="NextOfKin"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="NextOfKin" class="form-control" />
+                            <span asp-validation-for="NextOfKin" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-4 mb-4">
+                            <label asp-for="NextofKinPhone"></label><l style="color:red;font-weight:500">*</l>
+                            <input asp-for="NextofKinPhone" class="form-control" />
+                            <span asp-validation-for="NextofKinPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="card  box-shadow" style="border-radius:5px;height:73px">
+                            <div class="card-body">
+                                <span>
+                                    <button type="submit" style="border: 1px solid #54b4eb; height: 46px; width: 90px; background-color: #54b4eb; float: left; position: relative; bottom: 57px; color: white; border-radius: 5px; outline: none">Submit</button>
+                                    <a style="border: 1px solid #fd7e14; width: 90px; background-color: #fd7e14;position:relative;bottom:5px; float: right; padding: 10px; color: white; font-weight: bold; border-radius: 5px; outline: none;text-align:center;text-decoration:none " asp-action="Index" asp-controller="Home">Back</a>
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </form><br />
+               
+
+
+            </div>
+        </div>
+    </div>
+    <footer class="border-top footer">
+        <div class="container">
+            <div class="copy">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-4">
+                        <div id="about">
+                            <br />
+                            <h1 style="font-size:17px;color:orange; font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;width:250px;line-height:50px;margin-right:50px">DIVINE MASS TRANSIT</h1>
+                            <div class="useful">
+
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register" style="color:#ddd">Register</a>
+
+
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" style="color:#ddd">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="contacts">
+                            <br>
+                            <h2 style="font-size:19px;color:orange;font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;width:250px;line-height:50px;margin-left:30px">Contact us</h2>
+                            <div class="contact-info">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                    </svg>
+                                    <span class="text">No.236 Awada obosi Anambra state Nigeria</span>
+                                </div><br />
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                    </svg>
+                                    <span class="text">+234-0992350484,+234-0966218126</span>
+                                </div><br />
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 14 14">
+                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                                    </svg>
+
+                                    <span class="text">nwubasilas@yahoo.com</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="useful-link">
+                            <h2 style="font-size:19px;font-family: Verdana, Geneva, Tahoma, sans-serif;border-bottom:1px solid #156b8f;color:orange;width:250px;line-height: 50px;margin-right:50px">Useful-link</h2>
+                            <div class="useful">
+
+                                <a href="#">Home</a>
+                                <a href="#about">About us</a>
+                                <a href="#service">Service</a>
+                                <a href="#faq">FaQ</a>
+                                <a href="#contact">Contact us</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br /><br />
+                <div class="social">
+                    <span style="margin:5px">
+                        <a href="https://twitter.com/SilasNwuba">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                            </svg>
+                        </a>
+                        <a href="https://web.facebook.com/?_rdc=1&amp;_rdr">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                            </svg>
+                        </a>
+                        <a href="tel:+234-9092350484">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </a>
+                    </span>
+                </div>
+
+                <br /><br /><br /><br /><br /><br />
+                <p class="text-center">©copywrite and licensed by mikeclassic|design by ebukaTech Ltd</p>
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @section Scripts{
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
+
+
+
+
+
+
