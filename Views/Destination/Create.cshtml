@@ -1,0 +1,707 @@
+﻿
+@model BookingApplication.Models.DestinationCreateViewModel
+@{
+    ViewBag.Title = "Booking";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Divine mass transit</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/destination.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+
+</head>
+<body style="background-color:#eee">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3  fixed-top">
+            <div class="container">
+                <h4 class="navbar-brand" style="font-family:Arial, Helvetica, sans-serif;font-size:20px;position:relative;top:4px">Divine Mass Transit LTD</h4>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-center;padding:5px" style="display:flex;justify-content:space-around;flex-wrap:wrap" id="nav-link">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">FAQ</a>
+                            @*<a href="#faq" style="scroll-behavior:smooth;text-decoration:none" class="text-dark">FAQ</a>*@
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="background-content">
+            <div>
+                <img src="~/picture/istockphoto-1381052376-612x612 (1).jpg" style="width:100%;height:100%" />
+
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="card box-shadow" style="border-radius:5px;position:relative;top:0">
+            <div class="card-body" style="background-color:white;border-radius:4px">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb" style="background: darkorange; font-size: 20px; color: whitesmoke">
+                        <li class="breadcrumb-item">Here are your Schedule</li>
+                    </ol>
+                </nav>
+                <br />
+                <div class="Destination-content">
+                    <div class="bus">
+                        <img src="/picture/20217571-big-white-tour-bus.webp" alt="" style="max-width:200px;padding:5px" />
+                    </div>
+                    <div class="Details">
+                        <div>
+                            <h5 style="color:darkblue">Destination</h5>
+                            <p1>@Model.DepartureFrom</p1>
+                            <p><i class="fa-solid fa-car-side" style="font-size:18px;padding:5px"></i>@Model.ArivalTo</p>
+                        </div>
+                    </div>
+                    <div class="boarding">
+                        <h5 style="color:darkblue">Boarding Date</h5>
+                        <span> <i class="fa-regular fa-calendar" style="font-size:18px;padding:5px"></i> @Model.DateAndTime</span><br />
+                        <span><i class="fa-regular fa-clock" style="font-size:18px;padding:5px"></i> @Model.Time</span>
+                    </div>
+                    <div class="seat">
+                        <div>
+                            <h5 style="color:darkblue">Available Seat </h5>
+                            <p1>@Model.SeatCapacity</p1>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <div>
+                            <h5 style="color:darkblue">Price</h5>
+                            <span class="font-weight-normal" style="font-size:25px">₦ @Model.Price.ToString("f")</span>
+                            <p sstyle="color:darkblue">for @Model.Passenager ticket</p>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <br />
+                <div class="form-group mx-sm-3 mb-2" id="SeatNo">
+                    <label class="col-sm-2  col-form-label" style="color:darkblue;font-size:18px;font-weight:500">Seat No</label><br />
+                    <div class="col-md-4">
+                        <input asp-for="Seat" class="form-control" style="background:white" id="seatInput"/>
+                        <span>
+                            <i class="fa fa-times" id="cancel" onclick="cancelFunction('cancel')" style="float: right; margin-right: 20px; margin-top: -20px; position: relative; z-index: 2; bottom: 6px; color: red; font-size: 18px; cursor: pointer"></i>
+                        </span>
+                        <p id="demo"style="position:relative;bottom:30px;left:50px;font-size:18px;z-index:2"></p>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" style="background-color: darkblue;float:left; color: white;cursor:pointer; float: right;border-color: darkblue; outline: darkblue; margin-right: 15px;height:40px" id="continue">Continue <i class="fa-solid fa-arrow-right"></i></button>
+                    <button type="button" style="background-color: darkorange; color: white;cursor:pointer; float: right;border-color: darkorange; outline: darkorange; margin-right: 15px;height:40px" id="buttonClick">Select Seat <i class="fa-solid fa-arrow-right" onclick="SeatFunction(this)"></i></button>
+                </div>
+                <br /><br />
+                <br />
+                <div id="seatStatus">
+                    <hr /><br />
+                    <div class="Seat-Details">
+                        <div class="seat-information">
+                            <div>
+                                <h5 style="color:darkblue;margin-left:10px;line-height:2">Seat Status</h5>
+                                <div style="line-height:5">
+                                    <span>
+                                        <img src="~/picture/car seat.png" style="width:40px;height:40px;position:relative" />
+                                        <h8 style="color:red; font-weight: 600; line-height: 5"> Booked Seat</h8>
+
+                                    </span>
+                                    <br />
+                                    <span>
+                                        <img src="~/picture/car seat.png" style="width:40px;height:40px;position:relative" />
+                                        <h8 style="color: darkorange;font-weight:600; line-height: 5"> Avaliable seat</h8>
+
+                                    </span>
+                                    <br />
+                                    <span>
+                                        <img src="~/picture/car seat.png" style="width:40px;height:40px;position:relative" />
+                                        <h8 style="color: darkblue; line-height: 5; font-weight: 600 "> Selected seat</h8>
+
+                                    </span>
+                                </div>
+                                <br />
+                            </div>
+
+                        </div>
+                        <div class="seat-content">
+                            <h5 style="border: 1px solid darkblue; background: darkblue; border-radius: 0.25rem; height: 50px; color: white; text-align: center; margin: 1px;padding:10px">Choose Seat</h5>
+
+                            <ul style="position:relative;right:10px">
+                                <li style="list-style:none">
+                                    <table style="width:100%" cellpadding="4" cellspacing="4" class="MyTable-content table-responsive-md">
+                                        <tr>
+                                            <td>
+                                                <img src="~/picture/CaptureSteering.PNG" style="width:58px;width:40px" />
+
+                                            </td>
+
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:50px;height:40px;position:relative;top:20px" />
+                                                <div id="st1" style="position: relative;
+                                                        bottom: 18px;
+                                                        left: 17px;
+                                                        font-size: 23px;
+                                                        color: darkorange;
+                                                        cursor:pointer" onclick="st1Function('st1')">1</div>
+
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width: 58px; height: 40px; position: relative; top: 20px" />
+                                                <div id="st2" style="position: relative; bottom: 19px; left: 22px; font-size: 23px; color: darkorange; font-weight: bold;cursor:pointer" onclick="st2Function(this.value)">2</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                <div id="st3" style="position: relative; bottom: 39px; left: 23px; font-size: 23px; cursor: pointer; color: darkorange; cursor: pointer; font-weight: bold" onclick="st3Function(this.value)">3</div>
+                                            </td>
+                                            <td style="cursor: pointer">
+                                                <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                <div id="st4" style="position: relative; bottom: 39px; left: 23px; font-size: 23px; cursor: pointer; color: darkorange; cursor: pointer; font-weight: bold " onclick="st4Function(this.value)">4</div>
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                <div id="st5" style="position: relative;
+                                                       bottom: 39px;
+                                                        left: 23px;
+                                                        font-size: 23px;
+                                                        cursor:pointer;
+                                                        color: darkorange;
+                                                        font-weight: bold" onclick="st5Function(this.value)">5</div>
+
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                <div id="st6" style="position: relative;
+                                                         bottom: 39px;
+                                                        left: 23px;
+                                                        font-size: 23px;
+                                                        cursor:pointer;
+                                                        color: darkorange;
+                                                        font-weight: 700" onclick="st6Function(this.value)">6</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                <div id="st7" style="position: relative;
+                                                         bottom: 39px;
+                                                        left: 23px;
+                                                        font-size: 23px;
+                                                        cursor:pointer;
+                                                        color: darkorange;
+                                                        font-weight: bold" onclick="st7Function(this.value)">7</div>
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                <div id="st8" style="position: relative;
+                                                        bottom: 39px;
+                                                        left: 23px;
+                                                        font-size: 23px;
+                                                        cursor:pointer;
+                                                        color: darkorange" onclick="st8Function(this.value)">8</div>
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                <div id="st9" style="position: relative;
+                                                       bottom: 39px;
+                                                        left: 23px;
+                                                        font-size: 23px;
+                                                        cursor:pointer;
+                                                        color: darkorange;
+                                                        font-weight: bold" onclick="st9Function(this.value)">9</div>
+                                            </td>
+                                            <td>
+                                                <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                <div id="st10" style="position: relative;
+                                                       bottom: 37px;
+                                                        left: 19px;
+                                                        font-size: 21px;
+                                                        cursor:pointer;
+                                                        color: darkorange" onclick="st10Function(this.value)">10</div>
+
+                                            </td>
+                                        </tr>
+                                        @*<tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange;
+                                                     font-weight: 700">11</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                       bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                    color: darkorange">12</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">13</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">14</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 39px;
+                                                     left: 23px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                       color: darkorange">15</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">16</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">17</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">18</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                       bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">19</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                    bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">20</p>
+                                                </td>-->*@
+                                        @*<td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">21</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">22</p>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                    bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">23</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">24</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">25</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">26</p>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">27</p>
+
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                   bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">28</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">29</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">30</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">31</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">32</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">33</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                       color: darkorange">34</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">36</p>
+
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                      bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">36</p>
+
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">37</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                   bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                      color: darkorange">38</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">39</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:58px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                       color: darkorange">40</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                    bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                       color: darkorange">41</p>
+                                                </td>
+                                                <td style="cursor: pointer">
+                                                    <img src="~/picture/car seat.png" style="width:60px;height:40px" />
+                                                    <p style="position: relative;
+                                                     bottom: 37px;
+                                                     left: 19px;
+                                                     font-size: 21px;
+                                                     cursor:pointer;
+                                                     color: darkorange">42</p>
+                                                </td>
+                                            </tr>*@
+                                    </table>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                    </div>
+                    <br /><br />
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <br /><br /><br /><br />
+    <footer class="border-top footer">
+        <div class="container">
+            <div class="copy">
+                <div id="about">
+                    <br />
+                    <h1 style="font-size:17px;color:orange; font-family: Verdana, Geneva, Tahoma, sans-serif;line-height:50px">DIVINE MASS TRANSIT</h1>
+                    <div class="useful">
+
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register" style="color:#ddd">Register</a>
+
+
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" style="color:#ddd">Login</a>
+                    </div>
+                </div>
+                <div id="contacts">
+                    <br>
+                    <h2 style="font-size:18px;color:orange;font-family: Verdana, Geneva, Tahoma, sans-serif;line-height:50px">Contact us</h2>
+                    <div class="contact-info">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                            </svg>
+                            <span class="text-white"style="position:relative;top:5px">No.236 Awada obosi Anambra state Nigeria</span>
+                        </div><br />
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                            <span class="text-white">+234-0992350484,+234-0966218126</span>
+                        </div><br />
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 14 14">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                            </svg>
+
+                            <span class="text-white">nwubasilas@yahoo.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="useful-link">
+                    <h2 style="font-size: 18px; font-family: Verdana, Geneva, Tahoma, sans-serif; line-height: 50px;color:orange">Useful-link</h2>
+                    <div class="useful">
+                        <a href="#">Home</a>
+                        <a href="#about">About us</a>
+                        <a href="#service">Service</a>
+                        <a href="#faq">FaQ</a>
+                        <a href="#contact">Contact us</a>
+                    </div>
+                </div>
+            </div><br />
+            <div class="social">
+                <span style="margin:5px">
+                    <a href="https://twitter.com/SilasNwuba">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                        </svg>
+                    </a>
+                    <a href="https://web.facebook.com/?_rdc=1&amp;_rdr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                        </svg>
+                    </a>
+                    <a href="tel:+234-9092350484">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg>
+                    </a>
+                </span>
+            </div>
+            <br /><br /><br />
+            <p class="text-center text-white">Copywrite &copy; Hicad System Ltd</p>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @section Scripts{
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+    <script>
+        const seat = document.querySelector("#seatStatus");
+        seat.style.display = "none";
+        const btnContinue = document.getElementById("continue");
+        btnContinue.style.display = "none";
+        const seatNo = document.getElementById("SeatNo");
+        seatNo.style.display = "none";
+        const button = document.getElementById("buttonClick");
+        button.addEventListener("click", function () {
+            if (seat.style.display == "none") {
+                seat.style.display = "block";
+
+                const CheckButtonBackgroundColor = document.querySelector("#buttonClick");
+                CheckButtonBackgroundColor.style.backgroundColor = "red";
+                CheckButtonBackgroundColor.borderColor = "red";
+                CheckButtonBackgroundColor.innerHTML = "Cancel" + " " + '<i class="fa fa-times"></i>';
+                CheckButtonBackgroundColor.style.color = "white";
+                //enable seat no input field
+                const seatNo = document.getElementById("SeatNo");
+                seatNo.style.display = "block";
+
+                //this is the script to show the continue button
+                const btnContinue = document.getElementById("continue");
+                btnContinue.style.display = "block";
+            }
+            else {
+                seat.style.display = "none";
+                const CheckButtonBackgroundColor = document.querySelector("#buttonClick");
+                CheckButtonBackgroundColor.style.backgroundColor = "darkorange";
+                CheckButtonBackgroundColor.borderColor = "darkorange";
+                CheckButtonBackgroundColor.innerHTML = "Select Seat " + " " + '<i class ="fa-solid fa-arrow-right"></i>';
+                CheckButtonBackgroundColor.style.color = "white";
+                //disable seat no input field
+                const seatNo = document.getElementById("SeatNo");
+                seatNo.style.display = "none";
+
+                //this is the script to show the continue button
+                const btnContinue = document.getElementById("continue");
+                btnContinue.style.display = "none";
+            }
+
+        })
+        function st1Function(st1) {
+            const seat = document.getElementById("st1").innerHTML;
+            if (seat != 0) {
+             document.getElementById("demo").innerHTML = seat;
+            }
+        }
+        function cancelFunction(cancel) {
+            const demo = document.getElementById("demo").innerHTML;
+            demo.style.display = "none";
+        }
+
+    </script>
+
+</body>
+</html>

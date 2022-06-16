@@ -1,0 +1,380 @@
+﻿body {
+}
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+html {
+    font-size: 14px;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.nav-link a:hover {
+    color: orange;
+    transition: 0.5s ease-in-out;
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.a-link {
+    position: relative;
+    top: 30px;
+}
+
+.navigation a {
+    margin: 10px;
+}
+/* strickly for the background-image*/
+.background-content {
+    width: 100%;
+    position: relative;
+    max-width: 100%;
+}
+    .background-content img {
+        width: 100%;
+        max-height: 500px;
+        height: auto;
+    }
+
+/* stricky for destination-content 
+-------------------------------------------------------*/
+.Destination-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+    .Destination-content > div {
+        margin: 10px;
+    }
+
+.MyTable-content {
+    position: relative;
+    right: 20px;
+}
+.Seat-Details {
+    display: flex;
+    justify-content: space-between;
+    justify-items:center;
+    flex-wrap:wrap;
+}
+.seat-content {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    background-clip: border-box;
+    min-width: 0;
+    flex-direction: column;
+    display: flex;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.footer {
+    background: #2b2c2b;
+    position: relative;
+    top: 20px;
+}
+
+.copy {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.About-us {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contacts > div {
+    border: 1px solid #fdf9f9;
+    width: 100%;
+    background-color: #fdf9f9;
+    padding: 40px;
+}
+/*social style*/
+.social {
+    text-align: center;
+    position: relative;
+    left: -50%;
+    left: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.bi-telephone-fill {
+    border: 1px solid #156b8f;
+    width: 30px;
+    height: 30px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    outline: none;
+}
+
+.bi-facebook {
+    border: 1px solid #156b8f;
+    width: 30px;
+    height: 30px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.bi-twitter {
+    border: 1px solid #156b8f;
+    width: 30px;
+    height: 30px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+/*the end of social icon*/
+
+#about h2 {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#about ul a {
+    color: #ddd;
+    display: block;
+    padding: 5px;
+    margin-top: 30px;
+    text-decoration: none;
+    transition: all 3s ease;
+    outline: none;
+}
+
+    #about ul a:hover {
+        color: green;
+        border-bottom: 1px solid #ccc;
+        width: 100px;
+    }
+
+#contact > div {
+    display: block;
+    margin-top: 10px;
+}
+
+#contact h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bi-geo-alt-fill {
+    border: 1px solid #156b8f;
+    width: 33px;
+    height: 33px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    outline: none;
+    margin-top: 20px;
+}
+
+.bi-telephone-fill {
+    border: 1px solid #156b8f;
+    width: 33px;
+    height: 33px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    outline: none;
+}
+
+.bi-envelope-fill {
+    border: 1px solid #156b8f;
+    width: 33px;
+    height: 33px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+    outline: none;
+}
+
+.bi-telephone-fill:hover {
+    background-color: #eee;
+    color: #156b8f;
+    transition: all 0.9s ease;
+    cursor: pointer;
+    border-color: #ddd;
+}
+
+.bi-envelope-fill:hover {
+    background-color: #eee;
+    color: #156b8f;
+    transition: all 0.9s ease;
+    cursor: pointer;
+    border-color: #ddd;
+}
+
+.bi-geo-alt-fill:hover {
+    background-color: #eee;
+    color: #156b8f;
+    transition: all 0.9s ease;
+    cursor: pointer;
+    border-color: #ddd;
+}
+
+.useful-link {
+    color: white;
+    margin-top: 30px;
+}
+
+.useful a {
+    text-decoration: none;
+    color: #ddd;
+    display: block;
+    padding: 5px;
+    margin-top: 3px;
+    transition: 3s ease;
+    outline: none;
+}
+
+.useful h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 19px;
+    color: orange;
+}
+
+.useful > a {
+    margin-top: 10px;
+}
+
+.social {
+    text-align: center;
+}
+
+    .social h2 {
+        font-size: 19px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .social span {
+        margin-top: 30px;
+    }
+
+.bi-facebook {
+    border: 1px solid #156b8f;
+    width: 33px;
+    height: 33px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.bi-twitter {
+    border: 1px solid #156b8f;
+    width: 33px;
+    height: 33px;
+    background-color: #156b8f;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+.bi-facebook:hover {
+    background-color: #eee;
+    color: #156b8f;
+    transition: all 0.9s ease;
+    cursor: pointer;
+    border-color: #ddd;
+}
+
+
+.bi-twitter:hover {
+    background-color: #eee;
+    color: #156b8f;
+    transition: all 0.9s ease;
+    cursor: pointer;
+    border-color: #ddd;
+}
+form button {
+    padding: 10px;
+    background-color: #156b8f;
+    color: white;
+    font-weight: 500;
+    border: none;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+
+
